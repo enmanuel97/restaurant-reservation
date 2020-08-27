@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector    : 'app-login',
+    templateUrl : './login.component.html',
+    styleUrls   : ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+    constructor(private title: Title) {
+        this.title.setTitle('Sign In | Restaurant Reservation System');
+    }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+    }
 }

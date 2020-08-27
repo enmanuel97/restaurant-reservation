@@ -1,1 +1,85 @@
-<p>home works!</p>
+<main>
+  <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(assets/images/photo-1525610553991-2bede1a236e2.jpg);">
+    <div class="py-6 py-lg-7 text-white overlay-content text-center container">
+      <div class="row">
+        <div class="mx-auto col-xl-10">
+          <h1 class="display-3 font-weight-bold text-shadow">Restaurant Reservation System</h1>
+          <p class="text-lg text-shadow">Uncover the best places to eat, drink, and shop nearest to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20">
+      <form class="">
+        <div class="row">
+          <div class="d-flex align-items-center form-group col-md-5 col-lg-5">
+            <select class="form-control" name="country" id="country">
+              <option *ngFor="let country of countries" value="{{country}}">{{country | countryName}}</option>
+            </select>
+          </div>
+          <div class="d-flex align-items-center form-group col-md-5 col-lg-5">
+            <select class="form-control" name="city" id="city">
+                <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+            </select>
+          </div>
+          <div class="mb-0 col-lg-2">
+            <button type="submit" class="btn-block h-100  btn btn-primary">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <section class="py-6 ">
+    <div class="container">
+      <div class="mb-5 row">
+        <div class="col-md-12">
+          <p class="subtitle text-primary">Most popular cities</p>
+          <h2>What's trending</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
+          <div class="shadow-lg border-0 w-100 border-0 hover-animate card" style="background: url(assets/images/photo-1449034446853-66c86144b0ad.jpg) center center / cover no-repeat;">
+            <a class="tile-link" routerLink="/restaurants"></a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">San Francisco</h3>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="shadow-lg border-0 w-100 border-0 hover-animate card" style="background: url(assets/images/photo-1429554429301-1c7d5ae2d42e.jpg) center center / cover no-repeat;">
+            <a class="tile-link" routerLink="/restaurants"></a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Los Angeles</h3>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="shadow-lg border-0 w-100 border-0 hover-animate card" style="background: url(assets/images/photo-1523430410476-0185cb1f6ff9.jpg) center center / cover no-repeat;">
+            <a class="tile-link" routerLink="/restaurants"></a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Santa Monica</h3>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="shadow-lg border-0 w-100 border-0 hover-animate card" style="background: url(assets/images/photo-1523430410476-0185cb1f6ff9.jpg) center center / cover no-repeat;">
+            <a class="tile-link" routerLink="/restaurants"></a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">San Diego</h3>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-lg-stretch mb-4 col-lg-4">
+          <div class="shadow-lg border-0 w-100 border-0 hover-animate card" style="background: url(assets/images/photo-1523430410476-0185cb1f6ff9.jpg) center center / cover no-repeat;">
+            <a class="tile-link" routerLink="/restaurants"></a>
+            <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
+              <h3 class="text-shadow text-uppercase mb-0">Fresno</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
