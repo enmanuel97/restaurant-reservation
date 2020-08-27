@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "restaurant-reservation"
+    }
+  },
+  "defaultProject": "restaurant-reservation",
+  "cli": {
+    "analytics": "8bc4795c-6f39-4614-b5c4-5d4fbfaf5f57"
+  }
 }

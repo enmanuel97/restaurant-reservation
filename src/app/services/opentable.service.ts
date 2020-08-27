@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class OpentableService {
-    private url = 'http://opentable.herokuapp.com/api';
+    private url = 'https://opentable.herokuapp.com/api';
 
     constructor(private http: HttpClient) {
 
