@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width"/>
+      <meta charSet="utf-8"/>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Poppins:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap"/>
+      <link rel="icon" href="assets/images/favicon.png">
+      <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet"/>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.8/css/swiper.min.css" rel="stylesheet"/>
+      <title>Restaurants | Category - No map - Directory React Theme</title>
+      <link rel="stylesheet" href="assets/css/style.css"></link>
+      <link rel="stylesheet" href="assets/css/style2.css"></link>
+   </head>
+   <body>
+
+      <div style="padding-top:72px">
+            <header class="header">
+               <nav class="shadow navbar navbar-expand-lg navbar-light bg-white fixed-top">
+                  <div class="container-fluid">
+                     <div class="d-flex align-items-center">
+                        <a class="py-1 navbar-brand" href="index.html">
+                           <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTM4IiBoZWlnaHQ9IjMxIiB2aWV3Qm94PSIwIDAgMTM4IDMxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNDIuODc1IDkuNDdDNDMuOTg1IDkuNDcgNDQuOTU1IDkuNjkgNDUuNzg1IDEwLjEzQzQ2LjYxNSAxMC41NyA0Ny4yNTUgMTEuMTkgNDcuNzA1IDExLjk5QzQ4LjE2NSAxMi43OCA0OC4zOTUgMTMuNjk1IDQ4LjM5NSAxNC43MzVDNDguMzk1IDE1Ljc2NSA0OC4xNjUgMTYuNjggNDcuNzA1IDE3LjQ4QzQ3LjI1NSAxOC4yOCA0Ni42MSAxOC45IDQ1Ljc3IDE5LjM0QzQ0Ljk0IDE5Ljc4IDQzLjk3NSAyMCA0Mi44NzUgMjBIMzguOTNWOS40N0g0Mi44NzVaTTQyLjcxIDE3LjgxQzQzLjY4IDE3LjgxIDQ0LjQzNSAxNy41NCA0NC45NzUgMTdDNDUuNTE1IDE2LjQ2IDQ1Ljc4NSAxNS43MDUgNDUuNzg1IDE0LjczNUM0NS43ODUgMTMuNzY1IDQ1LjUxNSAxMy4wMSA0NC45NzUgMTIuNDdDNDQuNDM1IDExLjkzIDQzLjY4IDExLjY2IDQyLjcxIDExLjY2SDQxLjQ5NVYxNy44MUg0Mi43MVpNNTMuODkzNCA5LjQ3VjIwSDUxLjMyODRWOS40N0g1My44OTM0Wk02Mi42MjIzIDIwTDYwLjQzMjMgMTYuMDI1SDU5LjgxNzNWMjBINTcuMjUyM1Y5LjQ3SDYxLjU1NzNDNjIuMzg3MyA5LjQ3IDYzLjA5MjMgOS42MTUgNjMuNjcyMyA5LjkwNUM2NC4yNjIzIDEwLjE5NSA2NC43MDIzIDEwLjU5NSA2NC45OTIzIDExLjEwNUM2NS4yODIzIDExLjYwNSA2NS40MjczIDEyLjE2NSA2NS40MjczIDEyLjc4NUM2NS40MjczIDEzLjQ4NSA2NS4yMjczIDE0LjExIDY0LjgyNzMgMTQuNjZDNjQuNDM3MyAxNS4yMSA2My44NTczIDE1LjYgNjMuMDg3MyAxNS44M0w2NS41MTczIDIwSDYyLjYyMjNaTTU5LjgxNzMgMTQuMjFINjEuNDA3M0M2MS44NzczIDE0LjIxIDYyLjIyNzMgMTQuMDk1IDYyLjQ1NzMgMTMuODY1QzYyLjY5NzMgMTMuNjM1IDYyLjgxNzMgMTMuMzEgNjIuODE3MyAxMi44OUM2Mi44MTczIDEyLjQ4IDYyLjY5NzMgMTIuMTYgNjIuNDU3MyAxMS45M0M2Mi4yMjczIDExLjY5IDYxLjg3NzMgMTEuNTcgNjEuNDA3MyAxMS41N0g1OS44MTczVjE0LjIxWk03MS4xMDI0IDExLjQ5NVYxMy42ODVINzQuNTM3NFYxNS42Mkg3MS4xMDI0VjE3Ljk3NUg3NC45ODc0VjIwSDY4LjUzNzRWOS40N0g3NC45ODc0VjExLjQ5NUg3MS4xMDI0Wk03Ny43MTc3IDE0LjcyQzc3LjcxNzcgMTMuNjggNzcuOTQyNyAxMi43NTUgNzguMzkyNyAxMS45NDVDNzguODQyNyAxMS4xMjUgNzkuNDY3NyAxMC40OSA4MC4yNjc3IDEwLjA0QzgxLjA3NzcgOS41OCA4MS45OTI3IDkuMzUgODMuMDEyNyA5LjM1Qzg0LjI2MjcgOS4zNSA4NS4zMzI3IDkuNjggODYuMjIyNyAxMC4zNEM4Ny4xMTI3IDExIDg3LjcwNzcgMTEuOSA4OC4wMDc3IDEzLjA0SDg1LjE4NzdDODQuOTY3NyAxMi42MSA4NC42Njc3IDEyLjI4NSA4NC4yODc3IDEyLjA2NUM4My45MDc3IDExLjgzNSA4My40NzI3IDExLjcyIDgyLjk4MjcgMTEuNzJDODIuMTkyNyAxMS43MiA4MS41NTI3IDExLjk5NSA4MS4wNjI3IDEyLjU0NUM4MC41NzI3IDEzLjA4NSA4MC4zMjc3IDEzLjgxIDgwLjMyNzcgMTQuNzJDODAuMzI3NyAxNS42MyA4MC41NzI3IDE2LjM2IDgxLjA2MjcgMTYuOTFDODEuNTUyNyAxNy40NiA4Mi4xOTI3IDE3LjczNSA4Mi45ODI3IDE3LjczNUM4My40NzI3IDE3LjczNSA4My45MDc3IDE3LjYyIDg0LjI4NzcgMTcuMzlDODQuNjY3NyAxNy4xNiA4NC45Njc3IDE2LjgzIDg1LjE4NzcgMTYuNEg4OC4wMDc3Qzg3LjcwNzcgMTcuNTQgODcuMTEyNyAxOC40NCA4Ni4yMjI3IDE5LjFDODUuMzMyNyAxOS43NSA4NC4yNjI3IDIwLjA3NSA4My4wMTI3IDIwLjA3NUM4MS45OTI3IDIwLjA3NSA4MS4wNzc3IDE5Ljg1IDgwLjI2NzcgMTkuNEM3OS40Njc3IDE4Ljk0IDc4Ljg0MjcgMTguMzA1IDc4LjM5MjcgMTcuNDk1Qzc3Ljk0MjcgMTYuNjg1IDc3LjcxNzcgMTUuNzYgNzcuNzE3NyAxNC43MlpNOTguNjUzNCA5LjQ3VjExLjQ5NUg5NS44NjM0VjIwSDkzLjI5ODRWMTEuNDk1SDkwLjUwODRWOS40N0g5OC42NTM0Wk0xMDYuNDIxIDIwLjEwNUMxMDUuNDMxIDIwLjEwNSAxMDQuNTIxIDE5Ljg3NSAxMDMuNjkxIDE5LjQxNUMxMDIuODcxIDE4Ljk1NSAxMDIuMjE2IDE4LjMxNSAxMDEuNzI2IDE3LjQ5NUMxMDEuMjQ2IDE2LjY2NSAxMDEuMDA2IDE1LjczNSAxMDEuMDA2IDE0LjcwNUMxMDEuMDA2IDEzLjY3NSAxMDEuMjQ2IDEyLjc1IDEwMS43MjYgMTEuOTNDMTAyLjIxNiAxMS4xMSAxMDIuODcxIDEwLjQ3IDEwMy42OTEgMTAuMDFDMTA0LjUyMSA5LjU1IDEwNS40MzEgOS4zMiAxMDYuNDIxIDkuMzJDMTA3LjQxMSA5LjMyIDEwOC4zMTYgOS41NSAxMDkuMTM2IDEwLjAxQzEwOS45NjYgMTAuNDcgMTEwLjYxNiAxMS4xMSAxMTEuMDg2IDExLjkzQzExMS41NjYgMTIuNzUgMTExLjgwNiAxMy42NzUgMTExLjgwNiAxNC43MDVDMTExLjgwNiAxNS43MzUgMTExLjU2NiAxNi42NjUgMTExLjA4NiAxNy40OTVDMTEwLjYwNiAxOC4zMTUgMTA5Ljk1NiAxOC45NTUgMTA5LjEzNiAxOS40MTVDMTA4LjMxNiAxOS44NzUgMTA3LjQxMSAyMC4xMDUgMTA2LjQyMSAyMC4xMDVaTTEwNi40MjEgMTcuNzM1QzEwNy4yNjEgMTcuNzM1IDEwNy45MzEgMTcuNDYgMTA4LjQzMSAxNi45MUMxMDguOTQxIDE2LjM2IDEwOS4xOTYgMTUuNjI1IDEwOS4xOTYgMTQuNzA1QzEwOS4xOTYgMTMuNzg1IDEwOC45NDEgMTMuMDUgMTA4LjQzMSAxMi41QzEwNy45MzEgMTEuOTUgMTA3LjI2MSAxMS42NzUgMTA2LjQyMSAxMS42NzVDMTA1LjU3MSAxMS42NzUgMTA0Ljg5MSAxMS45NSAxMDQuMzgxIDEyLjVDMTAzLjg4MSAxMy4wNSAxMDMuNjMxIDEzLjc4NSAxMDMuNjMxIDE0LjcwNUMxMDMuNjMxIDE1LjYyNSAxMDMuODgxIDE2LjM2IDEwNC4zODEgMTYuOTFDMTA0Ljg5MSAxNy40NiAxMDUuNTcxIDE3LjczNSAxMDYuNDIxIDE3LjczNVpNMTIwLjEwMyAyMEwxMTcuOTEzIDE2LjAyNUgxMTcuMjk4VjIwSDExNC43MzNWOS40N0gxMTkuMDM4QzExOS44NjggOS40NyAxMjAuNTczIDkuNjE1IDEyMS4xNTMgOS45MDVDMTIxLjc0MyAxMC4xOTUgMTIyLjE4MyAxMC41OTUgMTIyLjQ3MyAxMS4xMDVDMTIyLjc2MyAxMS42MDUgMTIyLjkwOCAxMi4xNjUgMTIyLjkwOCAxMi43ODVDMTIyLjkwOCAxMy40ODUgMTIyLjcwOCAxNC4xMSAxMjIuMzA4IDE0LjY2QzEyMS45MTggMTUuMjEgMTIxLjMzOCAxNS42IDEyMC41NjggMTUuODNMMTIyLjk5OCAyMEgxMjAuMTAzWk0xMTcuMjk4IDE0LjIxSDExOC44ODhDMTE5LjM1OCAxNC4yMSAxMTkuNzA4IDE0LjA5NSAxMTkuOTM4IDEzLjg2NUMxMjAuMTc4IDEzLjYzNSAxMjAuMjk4IDEzLjMxIDEyMC4yOTggMTIuODlDMTIwLjI5OCAxMi40OCAxMjAuMTc4IDEyLjE2IDExOS45MzggMTEuOTNDMTE5LjcwOCAxMS42OSAxMTkuMzU4IDExLjU3IDExOC44ODggMTEuNTdIMTE3LjI5OFYxNC4yMVpNMTM1LjA0OCA5LjQ3TDEzMS40MDMgMTYuNTJWMjBIMTI4LjgzOFYxNi41MkwxMjUuMTkzIDkuNDdIMTI4LjEwM0wxMzAuMTQzIDEzLjg2NUwxMzIuMTY4IDkuNDdIMTM1LjA0OFoiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xNS41IDAuOTY4NzVDMTIuNjI2IDAuOTY4NzUgOS44MTY1MyAxLjgyMDk5IDcuNDI2ODggMy40MTc3MUM1LjAzNzIyIDUuMDE0NDIgMy4xNzQ3MiA3LjI4Mzg5IDIuMDc0ODggOS45MzkxM0MwLjk3NTA0NiAxMi41OTQ0IDAuNjg3Mjc5IDE1LjUxNjEgMS4yNDc5NyAxOC4zMzQ5QzEuODA4NjYgMjEuMTUzNyAzLjE5MjYzIDIzLjc0MjkgNS4yMjQ4NiAyNS43NzUxQzcuMjU3MDkgMjcuODA3NCA5Ljg0NjMxIDI5LjE5MTMgMTIuNjY1MSAyOS43NTJDMTUuNDgzOSAzMC4zMTI3IDE4LjQwNTYgMzAuMDI1IDIxLjA2MDkgMjguOTI1MUMyMy43MTYxIDI3LjgyNTMgMjUuOTg1NiAyNS45NjI4IDI3LjU4MjMgMjMuNTczMUMyOS4xNzkgMjEuMTgzNSAzMC4wMzEzIDE4LjM3NCAzMC4wMzEzIDE1LjVDMzAuMDMxMyAxMS42NDYxIDI4LjUwMDMgNy45NDk5OSAyNS43NzUyIDUuMjI0ODVDMjMuMDUgMi40OTk3MiAxOS4zNTM5IDAuOTY4NzUgMTUuNSAwLjk2ODc1VjAuOTY4NzVaTTguNzE4NzYgMjIuMjgxMkwxMS43NzAzIDEzLjEyNjZMMTcuODczNCAxOS4yMjk3TDguNzE4NzYgMjIuMjgxMlpNMTkuMjI5NyAxNy44NzM0TDEzLjEyNjYgMTEuNzcwM0wyMi4yODEzIDguNzE4NzVMMTkuMjI5NyAxNy44NzM0WiIgZmlsbD0iIzRFNjZGOCIvPgo8L3N2Zz4K" alt="Directory logo"/>
+                        </a>
+                     </div>
+                     <button aria-label="Toggle navigation" type="button" class="navbar-toggler-right navbar-toggler"><i class="fa fa-bars"></i></button>
+                     <div class="collapse navbar-collapse">
+                        <ul class="ml-auto navbar-nav">
+                           <li class="nav-item">
+                              <a href="index.html" class="nav-link">Home</a>
+                           </li>
+                           <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
+                           <li class="nav-item"><a href="login.html" class="nav-link">Sign in</a></li>
+                           <li class="nav-item"><a href="register.html" class="nav-link">Sign up</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </nav>
+            </header>
+            <main>
+               <div class="py-5 px-lg-5 container-fluid">
+                  <div class="border-bottom mb-4 row">
+                     <div class="col-12">
+                        <h1 class="display-4 font-weight-bold text-serif mb-4">Eat in Manhattan, NY</h1>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
+                           <div class="mr-3">
+                              <p class="mb-3 mb-md-0"><strong>12</strong> results found</p>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="mb-5 hover-animate col-sm-6 col-lg-4">
+                              <div class="h-100 border-0 shadow card">
+                                 <div style="background-image:url(/content/img/photo/restaurant-1430931071372-38127bd472b8.jpg);min-height:200px" class="card-img-top overflow-hidden dark-overlay bg-cover">
+                                    <a class="tile-link" href="detail.html"></a>
+                                    <div class="card-img-overlay-bottom z-index-20">
+                                       <h4 class="text-white text-shadow">Blue Hill</h4>
+                                       <p class="mb-2 text-xs"><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa fa-star  text-gray-300"></i></p>
+                                    </div>
+                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                       <span class="px-3 py-2 badge badge-transparent badge-pill">Restaurants</span>
+                                       <a href="#" class="card-fav-icon position-relative z-index-40">
+                                          <svg class="svg-icon text-white">
+                                             <use xlink:href="/content/svg/orion-svg-sprite.svg#heart-1"></use>
+                                          </svg>
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <p class="text-sm text-muted mb-3">Cupidatat excepteur non dolore laborum et quis nostrud veniam dolore deserunt. Pariatur dolore ut in elit id nulla....</p>
+                                    <p class="text-sm text-muted text-uppercase mb-1">By<a class="text-dark ml-1" href="user-profile">Bianca Briggs</a></p>
+                                    <p class="text-sm mb-0">
+                                       <a class="mr-1" href="#">
+                                          Restaurant<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">Contemporary</a>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="mb-5 hover-animate col-sm-6 col-lg-4">
+                              <div class="h-100 border-0 shadow card">
+                                 <div style="background-image:url(/content/img/photo/restaurant-1436018626274-89acd1d6ec9d.jpg);min-height:200px" class="card-img-top overflow-hidden dark-overlay bg-cover">
+                                    <a class="tile-link" href="detail.html"></a>
+                                    <div class="card-img-overlay-bottom z-index-20">
+                                       <h4 class="text-white text-shadow">Plutorque</h4>
+                                       <p class="mb-2 text-xs"><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i></p>
+                                    </div>
+                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                       <span class="px-3 py-2 badge badge-transparent badge-pill">Restaurant</span>
+                                       <a href="#" class="card-fav-icon position-relative z-index-40">
+                                          <svg class="svg-icon text-white">
+                                             <use xlink:href="/content/svg/orion-svg-sprite.svg#heart-1"></use>
+                                          </svg>
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <p class="text-sm text-muted mb-3">Proident irure eiusmod velit veniam consectetur id minim irure et nostrud mollit magna velit. Commodo amet proident...</p>
+                                    <p class="text-sm text-muted text-uppercase mb-1">By<a class="text-dark ml-1" href="user-profile">Bianca Briggs</a></p>
+                                    <p class="text-sm mb-0">
+                                       <a class="mr-1" href="#">
+                                          Restaurant<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">Fusion</a>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="mb-5 hover-animate col-sm-6 col-lg-4">
+                              <div class="h-100 border-0 shadow card">
+                                 <div style="background-image:url(/content/img/photo/restaurant-1466978913421-dad2ebd01d17.jpg);min-height:200px" class="card-img-top overflow-hidden dark-overlay bg-cover">
+                                    <a class="tile-link" href="detail.html"></a>
+                                    <div class="card-img-overlay-bottom z-index-20">
+                                       <h4 class="text-white text-shadow">Junipoor</h4>
+                                       <p class="mb-2 text-xs"><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i></p>
+                                    </div>
+                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                       <span class="px-3 py-2 badge badge-transparent badge-pill">Music club</span>
+                                       <a href="#" class="card-fav-icon position-relative z-index-40">
+                                          <svg class="svg-icon text-white">
+                                             <use xlink:href="/content/svg/orion-svg-sprite.svg#heart-1"></use>
+                                          </svg>
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <p class="text-sm text-muted mb-3">Lorem amet ex duis in et fugiat consectetur laborum eiusmod labore. Quis cupidatat et do dolor in in magna. Eu sit ...</p>
+                                    <p class="text-sm text-muted text-uppercase mb-1">By<a class="text-dark ml-1" href="user-profile">Bianca Briggs</a></p>
+                                    <p class="text-sm mb-0">
+                                       <a class="mr-1" href="#">
+                                          Music<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">
+                                          Techno<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">House</a>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="mb-5 hover-animate col-sm-6 col-lg-4">
+                              <div class="h-100 border-0 shadow card">
+                                 <div style="background-image:url(/content/img/photo/restaurant-1477763858572-cda7deaa9bc5.jpg);min-height:200px" class="card-img-top overflow-hidden dark-overlay bg-cover">
+                                    <a class="tile-link" href="detail.html"></a>
+                                    <div class="card-img-overlay-bottom z-index-20">
+                                       <h4 class="text-white text-shadow">Musix</h4>
+                                       <p class="mb-2 text-xs"><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa fa-star  text-gray-300"></i><i class="fa fa-star  text-gray-300"></i></p>
+                                    </div>
+                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                       <span class="px-3 py-2 badge badge-transparent badge-pill">Music club</span>
+                                       <a href="#" class="card-fav-icon position-relative z-index-40">
+                                          <svg class="svg-icon text-white">
+                                             <use xlink:href="/content/svg/orion-svg-sprite.svg#heart-1"></use>
+                                          </svg>
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <p class="text-sm text-muted mb-3">Deserunt eiusmod Lorem proident consequat elit culpa laboris ea cupidatat. Consequat dolore proident ipsum qui sint...</p>
+                                    <p class="text-sm text-muted text-uppercase mb-1">By<a class="text-dark ml-1" href="user-profile">Bianca Briggs</a></p>
+                                    <p class="text-sm mb-0">
+                                       <a class="mr-1" href="#">
+                                          Music<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">
+                                          Club<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">Rock</a>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="mb-5 hover-animate col-sm-6 col-lg-4">
+                              <div class="h-100 border-0 shadow card">
+                                 <div style="background-image:url(/content/img/photo/restaurant-1504087697492-238a6bf49ce8.jpg);min-height:200px" class="card-img-top overflow-hidden dark-overlay bg-cover">
+                                    <a class="tile-link" href="detail.html"></a>
+                                    <div class="card-img-overlay-bottom z-index-20">
+                                       <h4 class="text-white text-shadow">Prosure</h4>
+                                       <p class="mb-2 text-xs"><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i></p>
+                                    </div>
+                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                       <span class="px-3 py-2 badge badge-transparent badge-pill">Restaurant</span>
+                                       <a href="#" class="card-fav-icon position-relative z-index-40">
+                                          <svg class="svg-icon text-white">
+                                             <use xlink:href="/content/svg/orion-svg-sprite.svg#heart-1"></use>
+                                          </svg>
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <p class="text-sm text-muted mb-3">Cillum sunt reprehenderit ea non irure veniam dolore commodo labore fugiat est consequat velit. Cupidatat nisi qui ...</p>
+                                    <p class="text-sm text-muted text-uppercase mb-1">By<a class="text-dark ml-1" href="user-profile">Bianca Briggs</a></p>
+                                    <p class="text-sm mb-0">
+                                       <a class="mr-1" href="#">
+                                          Nisi<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">
+                                          Ex<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">Eiusmod</a>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="mb-5 hover-animate col-sm-6 col-lg-4">
+                              <div class="h-100 border-0 shadow card">
+                                 <div style="background-image:url(/content/img/photo/restaurant-1505275350441-83dcda8eeef5.jpg);min-height:200px" class="card-img-top overflow-hidden dark-overlay bg-cover">
+                                    <a class="tile-link" href="detail.html"></a>
+                                    <div class="card-img-overlay-bottom z-index-20">
+                                       <h4 class="text-white text-shadow">Take That</h4>
+                                       <p class="mb-2 text-xs"><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa  fa-star text-warning"></i><i class="fa fa-star  text-gray-300"></i></p>
+                                    </div>
+                                    <div class="card-img-overlay-top d-flex justify-content-between align-items-center">
+                                       <span class="px-3 py-2 badge badge-transparent badge-pill">Café</span>
+                                       <a href="#" class="card-fav-icon position-relative z-index-40">
+                                          <svg class="svg-icon text-white">
+                                             <use xlink:href="/content/svg/orion-svg-sprite.svg#heart-1"></use>
+                                          </svg>
+                                       </a>
+                                    </div>
+                                 </div>
+                                 <div class="card-body">
+                                    <p class="text-sm text-muted mb-3">Cillum sunt reprehenderit ea non irure veniam dolore commodo labore fugiat est consequat velit. Cupidatat nisi qui ...</p>
+                                    <p class="text-sm text-muted text-uppercase mb-1">By<a class="text-dark ml-1" href="user-profile">Bianca Briggs</a></p>
+                                    <p class="text-sm mb-0">
+                                       <a class="mr-1" href="#">
+                                          Nisi<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">
+                                          Ex<!-- -->,
+                                       </a>
+                                       <a class="mr-1" href="#">Eiusmod</a>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <nav class="d-flex justify-content-center" aria-label="Page navigation example">
+                           <ul class="pagination">
+                              <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-left"></i></a></li>
+                              <li class="active page-item"><a href="#" class="page-link">1</a></li>
+                              <li class="page-item"><a href="#" class="page-link">2</a></li>
+                              <li class="page-item"><a href="#" class="page-link">3</a></li>
+                              <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-right"></i></a></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </main>
+            <footer class="position-relative z-index-10 d-print-none">
+               <div class="py-6 bg-gray-200 text-muted">
+                  <div class="container">
+                     <div class="row">
+                        <div class="mb-5 mb-lg-0 col-lg-6">
+                           <div class="font-weight-bold text-uppercase text-dark mb-3">Directory</div>
+                           <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                           <ul class="list-inline">
+                              <li class="list-inline-item"><a href="#" target="_blank" title="twitter" class="text-muted text-hover-primary"><i class="fab fa-twitter"></i></a></li>
+                              <li class="list-inline-item"><a href="#" target="_blank" title="facebook" class="text-muted text-hover-primary"><i class="fab fa-facebook"></i></a></li>
+                              <li class="list-inline-item"><a href="#" target="_blank" title="instagram" class="text-muted text-hover-primary"><i class="fab fa-instagram"></i></a></li>
+                              <li class="list-inline-item"><a href="#" target="_blank" title="pinterest" class="text-muted text-hover-primary"><i class="fab fa-pinterest"></i></a></li>
+                              <li class="list-inline-item"><a href="#" target="_blank" title="vimeo" class="text-muted text-hover-primary"><i class="fab fa-vimeo"></i></a></li>
+                           </ul>
+                        </div>
+
+                        <div class="mb-5 mb-lg-0 col-lg-6">
+                           <div class="font-weight-bold text-uppercase text-dark mb-3">Daily Offers &amp; Discounts</div>
+                           <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
+                           <form id="newsletter-form" class="">
+                              <div class="input-group mb-3">
+                                 <input type="email" placeholder="Your Email Address" aria-label="Your Email Address" class="bg-transparent border-dark border-right-0 form-control">
+                                 <div class="input-group-append"><button class="btn-outline-dark border-left-0 btn btn-deoco"><i class="fa fa-paper-plane text-lg"></i></button></div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="py-4 font-weight-light bg-gray-800 text-gray-300">
+                  <div class="container">
+                     <div class="align-items-center row">
+                        <div class="text-center text-md-left col-md-12">
+                           <p class="text-sm mb-md-0">© 2020, Your company.  All rights reserved.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </footer>
+         </div>
+
+   </body>
+</html>
