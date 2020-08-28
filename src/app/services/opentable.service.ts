@@ -18,4 +18,10 @@ export class OpentableService {
     getCities() {
         return this.http.get(`${this.url}/cities`);
     }
+
+    getRestaurants(params) {
+        const {city, country} = params,
+            query = (typeof country === 'undefined') ? `&city=${city}` :  `&country=${country}&city=${city}`;
+        return this.http.get(`${this.url}/restaurants?per_page=15${query}`);
+    }
 }

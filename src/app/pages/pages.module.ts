@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { DetailComponent } from './detail/detail.component';
 import {CountryNamePipe} from '../pipes/country-name.pipe';
+import {FillPipe} from '../pipes/fill.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {CountryNamePipe} from '../pipes/country-name.pipe';
         HomeComponent,
         RestaurantComponent,
         DetailComponent,
-        CountryNamePipe
+        CountryNamePipe,
+        FillPipe,
     ],
     imports: [
         CommonModule,

@@ -11,8 +11,9 @@ const routes: Routes = [
         component   : PagesComponent,
         children    : [
             { path: '', component: HomeComponent },
-            { path: 'restaurants', component: RestaurantComponent },
-            { path: 'restaurant/details', component: DetailComponent }
+            { path: 'restaurants/:city', component: RestaurantComponent },
+            { path: 'restaurants/:country/:city', component: RestaurantComponent },
+            { path: 'restaurant/details/:cityId', component: DetailComponent }
         ]
     }
 ];

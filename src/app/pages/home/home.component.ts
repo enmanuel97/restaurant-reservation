@@ -46,7 +46,6 @@ export class HomeComponent implements OnInit {
         }
 
         this.getTrendingCities();
-        console.log(this.trendingCities);
     }
 
     private setLocalStorageData(key: string, data: string) {

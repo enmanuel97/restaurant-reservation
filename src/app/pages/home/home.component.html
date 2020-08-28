@@ -41,7 +41,7 @@
       <div class="row">
         <div *ngFor="let city of trendingCities" class="d-flex align-items-lg-stretch mb-4" [ngClass]="city.class">
           <div class="shadow-lg border-0 w-100 border-0 hover-animate card" style="background: url(assets/images/photo-1449034446853-66c86144b0ad.jpg) center center / cover no-repeat;">
-            <a class="tile-link" routerLink="/restaurants"></a>
+            <a class="tile-link" routerLink="/restaurants/{{city.name}}"></a>
             <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7">
               <h3 class="text-shadow text-uppercase mb-0">{{city.name}}</h3>
             </div>
