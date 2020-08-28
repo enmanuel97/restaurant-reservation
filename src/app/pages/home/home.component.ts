@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
     public countries: any[] = [];
     public cities: any[] = [];
+    public trendingCities: any[] = [];
 
     constructor(private title: Title, private opentableService: OpentableService) {
         this.title.setTitle('Home | Restaurant Reservation System');
@@ -28,14 +29,24 @@ export class HomeComponent implements OnInit {
         if(lsCountries === null) {
             this.opentableService.getCountries().subscribe((data: any) => {
                 this.countries = data.countries;
+                this.setLocalStorageData('countries', JSON.stringify(data.countries));
             });
         }
 
         if(lsCities === null) {
             this.opentableService.getCities().subscribe((data: any) => {
                 this.cities = data.cities;
+                this.setLocalStorageData('cities', JSON.stringify(data.cities));
             });
         }
+
+        if(lsCountries !== null && lsCities !== null) {
+            this.cities     = JSON.parse(this.getLocalStorageData('cities'));
+            this.countries  = JSON.parse(this.getLocalStorageData('countries'));
+        }
+
+        this.getTrendingCities();
+        console.log(this.trendingCities);
     }
 
     private setLocalStorageData(key: string, data: string) {
@@ -45,4 +56,17 @@ export class HomeComponent implements OnInit {
     private getLocalStorageData(key: string) {
         return localStorage.getItem(key);
     }
+
+    private getTrendingCities() {
+        for (let i = 0; i < 7; i++) {
+            const className = (i == 0 || i == 3) ? 'col-lg-8' : 'col-lg-4';
+            const element = this.randomProperty(this.cities);
+            this.trendingCities.push({class: className, name: element});
+        }
+    }
+
+    private randomProperty (obj) {
+        var keys = Object.keys(obj);
+        return obj[keys[ keys.length * Math.random() << 0]];
+    };
 }
