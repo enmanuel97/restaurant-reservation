@@ -9,6 +9,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { DetailComponent } from './detail/detail.component';
 import {CountryNamePipe} from '../pipes/country-name.pipe';
 import {FillPipe} from '../pipes/fill.pipe';
+import {AgmCoreModule} from '@agm/core';
 
 
 @NgModule({
@@ -22,6 +23,9 @@ import {FillPipe} from '../pipes/fill.pipe';
     ],
     imports: [
         CommonModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyCdKZGO36if8kNOZ8V5GG_r9QFjTDrrKe4'
+        }),
         PagesRoutingModule,
         SharedModule,
     ],

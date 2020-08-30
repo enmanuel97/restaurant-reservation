@@ -13,7 +13,7 @@ const routes: Routes = [
             { path: '', component: HomeComponent },
             { path: 'restaurants/:city', component: RestaurantComponent },
             { path: 'restaurants/:country/:city', component: RestaurantComponent },
-            { path: 'restaurant/details/:cityId', component: DetailComponent }
+            { path: 'restaurant/details/:restaurantId', component: DetailComponent }
         ]
     }
 ];

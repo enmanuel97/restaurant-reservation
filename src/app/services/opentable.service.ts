@@ -24,4 +24,8 @@ export class OpentableService {
             query = (typeof country === 'undefined') ? `&city=${city}` :  `&country=${country}&city=${city}`;
         return this.http.get(`${this.url}/restaurants?per_page=15${query}`);
     }
+
+    getRestaurantData(id) {
+        return this.http.get(`${this.url}/restaurants/${id}`);
+    }
 }

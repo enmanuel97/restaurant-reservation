@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {OpentableService} from '../../services/opentable.service';
 
 @Component({
     selector    : 'app-detail',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-    constructor() { }
+    public restaurant: any;
+    public loading: boolean;
+    public zoom = 18;
+    constructor(private activatedRoute: ActivatedRoute, private opentableService: OpentableService) {
+        this.activatedRoute.params.subscribe(params => {
+            this.loading = true;
+            this.opentableService.getRestaurantData(params['restaurantId']).subscribe((data: any) => {
+                this.restaurant = data;
+                this.loading = false;
+            });
+        });
+    }
 
     ngOnInit(): void {
     }
