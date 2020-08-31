@@ -29,7 +29,9 @@ export class HomeComponent implements OnInit {
     searchRestaurants() {
         if(this.country != 0 && this.city != 0) {
             this.router.navigate(['restaurants', this.country, this.city]);
-        } else if(this.city != 0 && this.country == 0) {
+        } else if(this.country != 0 && this.city == 0) {
+            this.router.navigate(['restaurants', this.country, '/true']);
+        } else {
             this.router.navigate(['restaurants', this.city]);
         }
     }
