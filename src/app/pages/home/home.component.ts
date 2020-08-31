@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import {OpentableService} from '../../services/opentable.service';
+import {FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
     selector    : 'app-home',
@@ -12,14 +14,24 @@ export class HomeComponent implements OnInit {
     public countries: any[] = [];
     public cities: any[] = [];
     public trendingCities: any[] = [];
+    public country: any = 0;
+    public city: any = 0;
 
-    constructor(private title: Title, private opentableService: OpentableService) {
+    constructor(private title: Title, private opentableService: OpentableService, private router: Router) {
         this.title.setTitle('Home | Restaurant Reservation System');
         this.loadData();
     }
 
     ngOnInit(): void {
 
+    }
+
+    searchRestaurants() {
+        if(this.country != 0 && this.city != 0) {
+            this.router.navigate(['restaurants', this.country, this.city]);
+        } else if(this.city != 0 && this.country == 0) {
+            this.router.navigate(['restaurants', this.city]);
+        }
     }
 
     private loadData() {

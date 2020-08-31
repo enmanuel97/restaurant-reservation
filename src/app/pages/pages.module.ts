@@ -10,6 +10,7 @@ import { DetailComponent } from './detail/detail.component';
 import {CountryNamePipe} from '../pipes/country-name.pipe';
 import {FillPipe} from '../pipes/fill.pipe';
 import {AgmCoreModule} from '@agm/core';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -21,14 +22,15 @@ import {AgmCoreModule} from '@agm/core';
         CountryNamePipe,
         FillPipe,
     ],
-    imports: [
-        CommonModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyCdKZGO36if8kNOZ8V5GG_r9QFjTDrrKe4'
-        }),
-        PagesRoutingModule,
-        SharedModule,
-    ],
+	imports: [
+		CommonModule,
+		AgmCoreModule.forRoot({
+			apiKey: 'AIzaSyCdKZGO36if8kNOZ8V5GG_r9QFjTDrrKe4'
+		}),
+		PagesRoutingModule,
+		SharedModule,
+		FormsModule,
+	],
     exports: [
         PagesComponent,
         HomeComponent,
