@@ -7,6 +7,10 @@ import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 
 import { AppComponent } from './app.component';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 
 @NgModule({
@@ -17,6 +21,9 @@ import { AppComponent } from './app.component';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        AngularFireAuthModule,
         SharedModule,
         AuthModule,
         PagesModule

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "restaurants-reservation-288015": {
+      "hosting": {
+        "restaurant-reservation": [
+          "restaurants-reservation-288015"
+        ]
+      }
+    }
+  }
+}
