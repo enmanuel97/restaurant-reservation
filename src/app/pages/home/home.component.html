@@ -15,19 +15,22 @@
         <div class="row">
           <div class="d-flex align-items-center form-group col-md-5 col-lg-5">
             <select class="form-control" [(ngModel)]="country" name="country" id="country">
-                <option value="0">Seleccione una opción</option>
+                <option value="0">Seleccione un pais</option>
               <option *ngFor="let country of countries" value="{{country}}">{{country | countryName}}</option>
             </select>
           </div>
           <div class="d-flex align-items-center form-group col-md-5 col-lg-5">
             <select class="form-control" [(ngModel)]="city" name="city" id="city">
-                <option value="0">Seleccione una opción</option>
+                <option value="0">Seleccione una ciudad</option>
                 <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
             </select>
           </div>
           <div class="mb-0 col-lg-2">
             <button type="submit" class="btn-block h-100  btn btn-primary">Search</button>
           </div>
+            <div *ngIf="error" class="col-md-12 pt-3">
+                <span class="error">You must select a country or a city or both</span>
+            </div>
         </div>
       </form>
     </div>

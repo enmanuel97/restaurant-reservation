@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
     public trendingCities: any[] = [];
     public country: any = 0;
     public city: any = 0;
+    public error: boolean = false;
 
     constructor(private title: Title, private opentableService: OpentableService, private router: Router) {
         this.title.setTitle('Home | Restaurant Reservation System');
@@ -27,10 +28,15 @@ export class HomeComponent implements OnInit {
     }
 
     searchRestaurants() {
+        if(this.country == 0 && this.city == 0) {
+            this.error = true;
+            return;
+        }
+
         if(this.country != 0 && this.city != 0) {
             this.router.navigate(['restaurants', this.country, this.city]);
         } else if(this.country != 0 && this.city == 0) {
-            this.router.navigate(['restaurants', this.country, '/true']);
+            this.router.navigate(['restaurants', this.country]);
         } else {
             this.router.navigate(['restaurants', this.city]);
         }

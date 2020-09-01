@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {OpentableService} from '../../services/opentable.service';
 
 @Component({
@@ -13,18 +13,24 @@ export class RestaurantComponent implements OnInit {
     public city: string;
     public country: string;
     public loading: boolean;
-    constructor(private activatedRoute: ActivatedRoute, private opentableService: OpentableService) {
+
+    constructor(private activatedRoute: ActivatedRoute, private opentableService: OpentableService, private router: Router) {
         this.activatedRoute.params.subscribe(params => {
             this.loading = true;
+            console.log(params);
             this.opentableService.getRestaurants(params).subscribe((data: any) => {
                 this.restaurants = data;
-                this.city = params['city'];
-                this.country = params['country'];
-                this.loading = false;
+                this.city       = params['city'];
+                this.country    = params['country'];
+                this.loading    = false;
             });
         });
     }
 
     ngOnInit(): void {
+    }
+
+    changePage(page: number) {
+        this.router.navigate(['restaurants', this.city, page]);
     }
 }
