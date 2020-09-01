@@ -19,8 +19,8 @@ export class OpentableService {
         return this.http.get(`${this.url}/cities`);
     }
 
-    getRestaurants(params, page = 1) {
-        const {city, country} = params;
+    getRestaurants(params) {
+        const {city, country, page} = params;
         let query = this.getQuery(city, country, page);
 
         return this.http.get(`${this.url}/restaurants?per_page=15${query}`);
@@ -35,7 +35,7 @@ export class OpentableService {
             query = '';
 
         if (countries.indexOf(city) > -1) {
-            query = `&country=${city}`;
+            query = `&country=${city}&page=${page}`;
         } else {
             query = (typeof country === 'undefined') ? `&city=${city}&page=${page}` :  `&country=${country}&city=${city}&page=${page}`;
         }
