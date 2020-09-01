@@ -19,13 +19,27 @@ export class OpentableService {
         return this.http.get(`${this.url}/cities`);
     }
 
-    getRestaurants(params) {
-        const {city, country} = params,
-            query = (typeof country === 'undefined') ? `&city=${city}` :  `&country=${country}&city=${city}`;
+    getRestaurants(params, page = 1) {
+        const {city, country} = params;
+        let query = this.getQuery(city, country, page);
+
         return this.http.get(`${this.url}/restaurants?per_page=15${query}`);
     }
 
     getRestaurantData(id) {
         return this.http.get(`${this.url}/restaurants/${id}`);
+    }
+
+    private getQuery(city, country, page) {
+        let countries = JSON.parse(localStorage.getItem('countries')),
+            query = '';
+
+        if (countries.indexOf(city) > -1) {
+            query = `&country=${city}`;
+        } else {
+            query = (typeof country === 'undefined') ? `&city=${city}&page=${page}` :  `&country=${country}&city=${city}&page=${page}`;
+        }
+
+        return query;
     }
 }
