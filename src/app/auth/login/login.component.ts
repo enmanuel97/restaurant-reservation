@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import {AuthService} from '../../services/auth.service';
+import {FormBuilder, Validators} from '@angular/forms';
 
 @Component({
     selector    : 'app-login',
@@ -9,14 +10,23 @@ import {AuthService} from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private title: Title, private authService: AuthService) {
+    public loginForm = this.fb.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
+    });
+
+    constructor(private title: Title, private fb: FormBuilder, private authService: AuthService) {
         this.title.setTitle('Sign In | Restaurant Reservation System');
     }
 
     ngOnInit(): void {
     }
 
-    logInFB() {
-        this.authService.FacebookAuth();
+    login() {
+        this.authService.login(this.loginForm.value);
+    }
+
+    loginWithSocialMedia(socialMedia: string) {
+        this.authService.loginWithSocialMedia(socialMedia);
     }
 }

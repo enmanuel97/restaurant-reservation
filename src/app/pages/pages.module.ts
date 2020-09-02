@@ -11,6 +11,7 @@ import {CountryNamePipe} from '../pipes/country-name.pipe';
 import {FillPipe} from '../pipes/fill.pipe';
 import {AgmCoreModule} from '@agm/core';
 import {FormsModule} from '@angular/forms';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {FormsModule} from '@angular/forms';
         DetailComponent,
         CountryNamePipe,
         FillPipe,
+        ReservationsComponent,
     ],
 	imports: [
 		CommonModule,

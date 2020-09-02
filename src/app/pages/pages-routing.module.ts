@@ -4,6 +4,7 @@ import { PagesComponent } from './pages.component';
 import { HomeComponent } from './home/home.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { DetailComponent } from './detail/detail.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 const routes: Routes = [
     {
@@ -15,7 +16,8 @@ const routes: Routes = [
             { path: 'restaurants/:country/:city', component: RestaurantComponent },
             { path: 'restaurants/:country/page/:page', component: RestaurantComponent },
             { path: 'restaurants/:country/:city/page/:page', component: RestaurantComponent },
-            { path: 'restaurant/details/:restaurantId', component: DetailComponent }
+            { path: 'restaurant/details/:restaurantId', component: DetailComponent },
+            { path: 'reservations', component: ReservationsComponent}
         ]
     }
 ];

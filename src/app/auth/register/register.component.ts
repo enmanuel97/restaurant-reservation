@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import {FormBuilder, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
     selector    : 'app-register',
@@ -8,10 +10,23 @@ import { Title } from '@angular/platform-browser';
 })
 export class RegisterComponent implements OnInit {
 
-    constructor(private title: Title) {
+    public registerForm = this.fb.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
+    });
+
+    constructor(private title: Title, private fb: FormBuilder, private authService: AuthService) {
         this.title.setTitle('Sign Up | Restaurant Reservation System');
     }
 
     ngOnInit(): void {
+    }
+
+    register() {
+        this.authService.createUser(this.registerForm.value);
+    }
+
+    loginWithSocialMedia(socialMedia: string) {
+        this.authService.loginWithSocialMedia(socialMedia);
     }
 }
