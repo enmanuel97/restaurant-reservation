@@ -9,18 +9,7 @@ import {Router} from '@angular/router';
 export class AuthService {
 
     constructor(private afAuth: AngularFireAuth, private router: Router) {
-        // this.afAuth.authState.subscribe(user => {
-        //     console.log(user);
-        //
-        //     if(!user){
-        //         return;
-        //     }
-        //     const userData = {
-        //         name: user.displayName || user.email,
-        //         uid : user.uid
-        //     }
-        //     this.
-        // });
+
     }
 
     createUser(registerForm) {
@@ -57,6 +46,16 @@ export class AuthService {
             this.router.navigate(['/']);
         }).catch(error => {
             console.log(error);
+        });
+    }
+
+    private getSessionData(result) {
+        this.afAuth.authState.subscribe(user => {
+            console.log(user);
+
+            if(!user){
+                return;
+            }
         });
     }
 }
