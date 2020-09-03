@@ -8,8 +8,20 @@ import {Router} from '@angular/router';
 })
 export class AuthService {
 
-    constructor(private afAuth: AngularFireAuth, private router: Router) {
+    public userData = {
+        uid: '',
+        displayName: '',
+        email: '',
+        is_logged_in: 0
+    }
 
+    constructor(private afAuth: AngularFireAuth, private router: Router) {
+        const lsData = localStorage.getItem('userData');
+
+        if(lsData != null) {
+            this.userData = JSON.parse(lsData);
+            console.log(lsData);
+        }
     }
 
     createUser(registerForm) {
@@ -26,6 +38,7 @@ export class AuthService {
         const {email, password} = loginForm;
         this.afAuth.signInWithEmailAndPassword(email, password).then(result => {
             console.log(result);
+            this.setSessionData();
             this.router.navigate(['/reservations']);
         }).catch(error => {
             console.log(error);
@@ -34,7 +47,7 @@ export class AuthService {
 
     loginWithSocialMedia(socialMedia: string) {
         this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {
-            console.log(result);
+            this.setSessionData();
             this.router.navigate(['/reservations']);
         }).catch(error => {
             console.log(error);
@@ -43,19 +56,32 @@ export class AuthService {
 
     logout() {
         this.afAuth.signOut().then(result => {
+            localStorage.clear();
+            this.userData.is_logged_in = 0;
             this.router.navigate(['/']);
         }).catch(error => {
             console.log(error);
         });
     }
 
-    private getSessionData(result) {
+    private setSessionData() {
         this.afAuth.authState.subscribe(user => {
-            console.log(user);
 
             if(!user){
-                return;
+                localStorage.clear();
+                this.router.navigate(['/']);
             }
+
+            const {uid, displayName, email} = user;
+
+            const userData = {
+                uid,
+                displayName,
+                email,
+                is_logged_in: 1
+            };
+            this.userData = userData;
+            localStorage.setItem('userData', JSON.stringify(userData));
         });
     }
 }
