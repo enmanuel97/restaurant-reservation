@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { ReservationService } from '../../services/reservation.service';
 
 @Component({
-  selector: 'app-reservations',
-  templateUrl: './reservations.component.html',
-  styleUrls: ['./reservations.component.css']
+    selector    : 'app-reservations',
+    templateUrl : './reservations.component.html',
+    styleUrls   : ['./reservations.component.css']
 })
 export class ReservationsComponent implements OnInit {
 
-  constructor() { }
+    public reservations: any[] = [];
+    constructor(private reservationService: ReservationService) { }
 
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {
+        this.reservationService.getReservations().subscribe(data => {
+            console.log(data);
+        });
+    }
 }
