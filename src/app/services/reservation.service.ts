@@ -6,7 +6,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ReservationService {
 
-    public uid = JSON.parse(localStorage.getItem('userData')).uid;
+    // public uid = JSON.parse(localStorage.getItem('userData')).uid;
+    public uid = 0;
     constructor(private firestore: AngularFirestore) { }
 
     getReservations() {

@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { DetailComponent } from './detail/detail.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+import {AuthGuard} from '../guards/auth.guard';
 
 const routes: Routes = [
     {
@@ -17,7 +18,7 @@ const routes: Routes = [
             { path: 'restaurants/:country/page/:page', component: RestaurantComponent },
             { path: 'restaurants/:country/:city/page/:page', component: RestaurantComponent },
             { path: 'restaurant/details/:restaurantId', component: DetailComponent },
-            { path: 'reservations', component: ReservationsComponent}
+            { path: 'reservations', component: ReservationsComponent, canActivate: [AuthGuard]}
         ]
     }
 ];

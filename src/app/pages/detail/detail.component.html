@@ -12,7 +12,7 @@
           </p>
         </div>
           <div class="calltoactions">
-              <a href="#leaveReview" data-smooth-scroll="true" class="btn btn-primary">Reserve</a>
+              <a href="javascript:void(0);" (click)="makeReservation(restaurant.id)" data-smooth-scroll="true" class="btn btn-primary">Reserve</a>
           </div>
       </div>
     </div>
@@ -45,7 +45,6 @@
                 <ul class="list-unstyled mb-4">
                   <li class="mb-2"><a class="text-gray-00 text-sm text-decoration-none" href="#"><i class="fa fa-phone mr-3"></i><span class="text-muted">{{restaurant.phone}}</span></a></li>
                 </ul>
-                <div class="text-center"><a href="#" class="btn btn-outline-primary btn-block"><i class="far fa-paper-plane mr-2"></i>Reserve</a></div>
               </div>
             </div>
 <!--            <div class="text-center">-->
