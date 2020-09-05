@@ -7,10 +7,12 @@ import { PagesComponent } from './pages.component';
 import { HomeComponent } from './home/home.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { DetailComponent } from './detail/detail.component';
-import {CountryNamePipe} from '../pipes/country-name.pipe';
-import {FillPipe} from '../pipes/fill.pipe';
-import {AgmCoreModule} from '@agm/core';
-import {FormsModule} from '@angular/forms';
+import { CountryNamePipe } from '../pipes/country-name.pipe';
+import { FillPipe } from '../pipes/fill.pipe';
+import { AgmCoreModule } from '@agm/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ReservationsComponent } from './reservations/reservations.component';
 
 
@@ -25,13 +27,16 @@ import { ReservationsComponent } from './reservations/reservations.component';
         ReservationsComponent,
     ],
 	imports: [
-		CommonModule,
+        CommonModule,
 		AgmCoreModule.forRoot({
 			apiKey: 'AIzaSyCdKZGO36if8kNOZ8V5GG_r9QFjTDrrKe4'
 		}),
+        FormsModule,
+        ReactiveFormsModule,
+        ModalModule.forRoot(),
+        BsDatepickerModule.forRoot(),
 		PagesRoutingModule,
 		SharedModule,
-		FormsModule,
 	],
     exports: [
         PagesComponent,

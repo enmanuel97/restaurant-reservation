@@ -18,7 +18,11 @@ const routes: Routes = [
             { path: 'restaurants/:country/page/:page', component: RestaurantComponent },
             { path: 'restaurants/:country/:city/page/:page', component: RestaurantComponent },
             { path: 'restaurant/details/:restaurantId', component: DetailComponent },
-            { path: 'reservations', component: ReservationsComponent, canActivate: [AuthGuard]}
+            {
+                path: 'reservations',
+                component: ReservationsComponent,
+                canActivateChild: [AuthGuard]
+            }
         ]
     }
 ];

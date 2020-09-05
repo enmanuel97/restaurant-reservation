@@ -1,36 +1,47 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import {Router} from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ReservationService {
 
-    // public uid = JSON.parse(localStorage.getItem('userData')).uid;
-    public uid = 0;
-    constructor(private firestore: AngularFirestore) { }
+    constructor(private firestore: AngularFirestore, private router: Router) { }
 
     getReservations() {
-        return this.firestore.collection('reservations', ref => ref.where('hidden', '==', 0)
-            .where('uid', '==', this.uid).orderBy('creation_date', 'desc')).valueChanges();
+        const uid = JSON.parse(localStorage.getItem('userData')).uid;
+        return this.firestore.collection('reservations', ref => ref.where('uid', '==', uid).orderBy('creation_date', 'desc')).valueChanges();
     }
 
     async getReservation(id: string) {
         return await this.firestore.collection('reservations').ref.where('id', '==', id).get();
     }
 
-    newReservation(formData) {
+    newReservation(restaurantData, reservationData) {
+        const uid = JSON.parse(localStorage.getItem('userData')).uid;
         return new Promise<any>((resolve, reject) => {
-            formData.date           = this.getCurrentDate();
-            formData.creation_date  = new Date();
-            formData.hidden         = 1;
+            const formData = {
+                restaurantId        : restaurantData.id,
+                userName            : reservationData.name,
+                quantity            : reservationData.quantity,
+                name                : restaurantData.name,
+                price               : restaurantData.price,
+                reservation_date    : this.getCurrentDate(restaurantData.reservation_date),
+                creation_date       : this.getCurrentDate(),
+                hidden              : 0,
+                uid
+            };
+            console.log(formData);
             this.firestore.collection('reservations').add(formData)
-                .then(res => {return true}, err => reject(err));
+                .then(res => {
+                    this.router.navigateByUrl('/reservations');
+                }, err => reject(err));
         });
     }
 
-    private getCurrentDate(): string{
-        let currentDate = new Date();
+    private getCurrentDate(date  = new Date()): string{
+        let currentDate = date;
         let day:any = currentDate.getDate();
         let month:any = currentDate.getMonth() + 1;
         let year:any = currentDate.getFullYear();

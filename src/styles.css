@@ -1,7 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css";
 agm-map {
     height: 350px;
 }
-p-b-30 {
+.p-b-30 {
     padding-bottom: 30px !important;
+}
+.l-h-40 {
+     line-height: 40px;
+ }
+.label-style {
+    font-weight: bold;
+    color: #3d4465;
+}
+.alpha {
+    padding-left: 0px !important;
+}
+.omega {
+    padding-right: 0px !important;
 }

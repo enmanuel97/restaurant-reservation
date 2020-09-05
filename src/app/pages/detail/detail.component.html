@@ -1,59 +1,103 @@
 <main *ngIf="loading">loading</main>
 <main *ngIf="!loading">
-  <section style="background-image:url(assets/images/restaurant-1515164783716-8e6920f3e77c.jpg)" class="pt-7 pb-5 d-flex align-items-end dark-overlay bg-cover">
-    <div class="overlay-content container">
-      <div class="d-flex justify-content-between align-items-start flex-column flex-lg-row align-items-lg-end">
-        <div class="text-white mb-4 mb-lg-0">
-          <h1 class="text-shadow verified">{{restaurant.name}}</h1>
-          <p><i class="fa-map-marker-alt fas mr-2"></i>{{restaurant.address}}, {{restaurant.city}}, {{restaurant.state+' '+restaurant.postal_code}}</p>
-          <p class="mb-0 d-flex align-items-center">
-              <i *ngFor="let i of restaurant.price | fill" class="fa fa-star text-warning"></i>
-              <i *ngFor="let i of 5-restaurant.price | fill" class="fa fa-star text-gray-300"></i>
-          </p>
-        </div>
-          <div class="calltoactions">
-              <a href="javascript:void(0);" (click)="makeReservation(restaurant.id)" data-smooth-scroll="true" class="btn btn-primary">Reserve</a>
-          </div>
-      </div>
-    </div>
-  </section>
-  <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 p-b-30">
-          <div class="text-block">
-            <h3 class="mb-4">Location</h3>
-            <div class="map-wrapper-300 mb-3">
-                <agm-map [zoom]="zoom" [latitude]="restaurant.lat" [longitude]="restaurant.lng">
-                    <agm-marker [latitude]="restaurant.lat" [longitude]="restaurant.lng"></agm-marker>
-                </agm-map>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="pl-xl-4">
-            <div class="border-0 shadow mb-5 card">
-              <div class="bg-gray-100 py-4 border-0 card-header">
-                <div class="align-items-center media">
-                  <div class="media-body">
-                    <p class="subtitle text-sm text-primary">Drop Us a Line</p>
-                    <h4 class="mb-0">Contact</h4>
-                  </div>
+    <section style="background-image:url(assets/images/restaurant-1515164783716-8e6920f3e77c.jpg)" class="pt-7 pb-5 d-flex align-items-end dark-overlay bg-cover">
+        <div class="overlay-content container">
+            <div class="d-flex justify-content-between align-items-start flex-column flex-lg-row align-items-lg-end">
+                <div class="text-white mb-4 mb-lg-0">
+                    <h1 class="text-shadow verified">{{restaurant.name}}</h1>
+                    <p><i class="fa-map-marker-alt fas mr-2"></i>{{restaurant.address}}, {{restaurant.city}}, {{restaurant.state+' '+restaurant.postal_code}}</p>
+                    <p class="mb-0 d-flex align-items-center">
+                        <i *ngFor="let i of restaurant.price | fill" class="fa fa-star text-warning"></i>
+                        <i *ngFor="let i of 5-restaurant.price | fill" class="fa fa-star text-gray-300"></i>
+                    </p>
                 </div>
-              </div>
-              <div class="card-body">
-                <ul class="list-unstyled mb-4">
-                  <li class="mb-2"><a class="text-gray-00 text-sm text-decoration-none" href="#"><i class="fa fa-phone mr-3"></i><span class="text-muted">{{restaurant.phone}}</span></a></li>
-                </ul>
-              </div>
+                <div class="calltoactions">
+                    <a href="javascript:void(0);" (click)="showReservationModal(template)" data-smooth-scroll="true" class="btn btn-primary">Reserve</a>
+                </div>
             </div>
-<!--            <div class="text-center">-->
-<!--              <p><a href="#" class="text-secondary"><i class="fa fa-heart"></i> Bookmark This Listing</a></p>-->
-<!--              <span>79 people bookmarked this place </span>-->
-<!--            </div>-->
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 p-b-30">
+                    <div class="text-block">
+                        <h3 class="mb-4">Location</h3>
+                        <div class="map-wrapper-300 mb-3">
+                            <agm-map [zoom]="zoom" [latitude]="restaurant.lat" [longitude]="restaurant.lng">
+                                <agm-marker [latitude]="restaurant.lat" [longitude]="restaurant.lng"></agm-marker>
+                            </agm-map>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="pl-xl-4">
+                        <div class="border-0 shadow mb-5 card">
+                            <div class="bg-gray-100 py-4 border-0 card-header">
+                                <div class="align-items-center media">
+                                    <div class="media-body">
+                                        <p class="subtitle text-sm text-primary">Drop Us a Line</p>
+                                        <h4 class="mb-0">Contact</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><a class="text-gray-00 text-sm text-decoration-none" href="#"><i class="fa fa-phone mr-3"></i><span class="text-muted">{{restaurant.phone}}</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Modals Section-->
+    <ng-template #template>
+        <div class="modal-header">
+            <i class="mdi mdi-bank p-r-7"></i> <h4 class="modal-title pull-left">Reservar</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form [formGroup]="reservationForm" (ngSubmit)="saveReservationData();">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 p-t-10">
+                        <div class="row form-group">
+                            <div class="col-md-4 text-right">
+                                <label for="name" class="label-style l-h-40">A Nombre de:</label>
+                            </div>
+                            <div class="col-md-7 alpha">
+                                <input type="text" class="form-control" formControlName="name" name="name" id="name">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4 text-right">
+                                <label for="reservation_date" class="label-style l-h-40">Fecha:</label>
+                            </div>
+                            <div class="col-md-7 alpha">
+                                <input type="text" class="form-control" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" formControlName="reservation_date" name="reservation_date" id="reservation_date">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-4 text-right">
+                                <label for="quantity" class="label-style l-h-40">Para:</label>
+                            </div>
+                            <div class="col-md-2 alpha">
+                                <input type="number" class="form-control" formControlName="quantity" name="quantity" id="quantity">
+                            </div>
+                            <div class="col-md-2 alpha l-h-40">persona(as)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 text-right">
+                    <button *ngIf="isLoading == false" type="submit" class="btn btn-primary"><i class="ti-save"></i> Guardar</button>
+                    <button *ngIf="isLoading == true" type="submit" class="btn btn-primary" disabled><i class="la la-spinner la-spin"></i> Guardando</button>
+                </div>
+            </div>
+        </form>
+    </ng-template>
 </main>
