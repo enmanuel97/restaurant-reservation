@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { PagesComponent } from './pages.component';
 import { HomeComponent } from './home/home.component';
@@ -33,6 +34,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 		}),
         FormsModule,
         ReactiveFormsModule,
+        NgxPaginationModule,
         ModalModule.forRoot(),
         BsDatepickerModule.forRoot(),
 		PagesRoutingModule,

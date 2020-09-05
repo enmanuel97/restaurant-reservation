@@ -10,11 +10,11 @@
       <div class="col-lg-12">
         <div class="d-flex justify-content-between align-items-center flex-column flex-md-row mb-4">
           <div class="mr-3">
-            <p class="mb-3 mb-md-0"><strong>{{restaurants.total_entries}}</strong> results found</p>
+            <p class="mb-3 mb-md-0"><strong>{{restaurants.total_entries}}</strong> results found / page {{p}}</p>
           </div>
         </div>
         <div class="row">
-          <div *ngFor="let restaurant of restaurants.restaurants" class="mb-5 hover-animate col-sm-6 col-lg-4">
+          <div *ngFor="let restaurant of restaurants.restaurants | paginate: { itemsPerPage: 15, currentPage: p, totalItems: restaurants.total_entries }" class="mb-5 hover-animate col-sm-6 col-lg-4">
             <div class="h-100 border-0 shadow card">
               <div style="background-image: url('assets/images/photo-1525610553991-2bede1a236e2.jpg');min-height:200px" class="card-img-top overflow-hidden dark-overlay bg-cover">
                 <a class="tile-link" routerLink="/restaurant/details/{{restaurant.id}}"></a>
@@ -33,13 +33,16 @@
           </div>
         </div>
         <nav class="d-flex justify-content-center" aria-label="Page navigation example">
-          <ul class="pagination">
-            <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-left"></i></a></li>
-            <li class="active page-item"><a href="#" class="page-link">1</a></li>
-            <li class="page-item"><a href="#" class="page-link">2</a></li>
-            <li class="page-item"><a href="#" class="page-link">3</a></li>
-            <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-right"></i></a></li>
-          </ul>
+<!--          <ul class="pagination">-->
+<!--            <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-left"></i></a></li>-->
+<!--            <li class="active page-item"><a href="#" class="page-link">1</a></li>-->
+<!--            <li class="page-item"><a href="#" class="page-link">2</a></li>-->
+<!--            <li class="page-item"><a href="#" class="page-link">3</a></li>-->
+<!--            <li class="page-item"><a href="#" class="page-link"><i class="fa fa-angle-right"></i></a></li>-->
+<!--          </ul>-->
+            <pagination-controls previousLabel="Prev"
+                                 nextLabel="Next"
+                                 responsive="true" (pageChange)="changePage($event)"></pagination-controls>
         </nav>
       </div>
     </div>

@@ -28,6 +28,9 @@
                                         <i *ngFor="let i of 5-reservation.price | fill" class="fa fa-star text-gray-300"></i>
                                     </p>
                                 </div>
+                                <p class="text-sm text-muted text-uppercase mb-1">By {{reservation.userName}}</p>
+                                <p *ngIf="reservation.quantity > 1" class="text-sm text-muted text-uppercase mb-1">To {{reservation.quantity}} people</p>
+                                <p *ngIf="reservation.quantity <= 1" class="text-sm text-muted text-uppercase mb-1">To {{reservation.quantity}} person</p>
                             </div>
                         </div>
                     </div>

@@ -19,8 +19,8 @@ export class OpentableService {
         return this.http.get(`${this.url}/cities`);
     }
 
-    getRestaurants(params) {
-        const {city, country, page} = params;
+    getRestaurants(params, page = 1) {
+        const {city, country} = params;
         let query = this.getQuery(city, country, page);
 
         return this.http.get(`${this.url}/restaurants?per_page=15${query}`);
