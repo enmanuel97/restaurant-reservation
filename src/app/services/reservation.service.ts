@@ -11,7 +11,7 @@ export class ReservationService {
 
     getReservations() {
         let userdata: any = localStorage.getItem('userData');
-        console.log(userdata);
+
         if(userdata == null) {
             window.location.reload();
         }
