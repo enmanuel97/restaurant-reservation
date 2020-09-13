@@ -26,6 +26,7 @@ export class AuthService {
     createUser(registerForm) {
         const {email, password} = registerForm;
         this.afAuth.createUserWithEmailAndPassword(email, password).then(result => {
+            this.setSessionData();
             this.router.navigateByUrl('/reservations');
         }).catch(error => {
             alert(error.message);
