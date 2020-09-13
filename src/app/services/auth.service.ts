@@ -28,6 +28,7 @@ export class AuthService {
         this.afAuth.createUserWithEmailAndPassword(email, password).then(result => {
             this.router.navigateByUrl('/reservations');
         }).catch(error => {
+            alert(error.message);
             console.log(error);
         });
     }
@@ -38,6 +39,7 @@ export class AuthService {
             this.setSessionData();
             this.router.navigateByUrl('/reservations');
         }).catch(error => {
+            alert(error.message);
             console.log(error);
         });
     }
@@ -47,6 +49,7 @@ export class AuthService {
             this.setSessionData();
             this.router.navigateByUrl('/reservations');
         }).catch(error => {
+            alert(error.message);
             console.log(error);
         });
     }

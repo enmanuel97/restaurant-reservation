@@ -10,7 +10,14 @@ export class ReservationService {
     constructor(private firestore: AngularFirestore, private router: Router) { }
 
     getReservations() {
-        const uid = JSON.parse(localStorage.getItem('userData')).uid;
+        let userdata: any = localStorage.getItem('userData');
+
+        if(userdata == null) {
+            window.location.reload();
+        }
+        userdata = JSON.parse(userdata);
+
+        const uid = userdata.uid;
         return this.firestore.collection('reservations', ref => ref.where('uid', '==', uid).orderBy('creation_date', 'desc')).valueChanges();
     }
 
