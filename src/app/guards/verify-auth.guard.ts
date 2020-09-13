@@ -9,9 +9,9 @@ export class VerifyAuthGuard implements CanActivate {
     }
 
     canActivate() {
-        let accessToken = localStorage.getItem('userData') || '';
+        let accessToken = localStorage.getItem('userData');
 
-        if (accessToken !== '') {
+        if (accessToken !== null) {
             this.router.navigateByUrl('/reservations');
             return false;
         }

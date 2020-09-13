@@ -27,7 +27,9 @@ export class AuthService {
         const {email, password} = registerForm;
         this.afAuth.createUserWithEmailAndPassword(email, password).then(result => {
             this.setSessionData();
-            this.router.navigateByUrl('/reservations');
+            setTimeout(() => {
+                this.router.navigateByUrl('/reservations');
+            }, 2000);
         }).catch(error => {
             alert(error.message);
             console.log(error);
@@ -38,7 +40,9 @@ export class AuthService {
         const {email, password} = loginForm;
         this.afAuth.signInWithEmailAndPassword(email, password).then(result => {
             this.setSessionData();
-            this.router.navigateByUrl('/reservations');
+            setTimeout(() => {
+                this.router.navigateByUrl('/reservations');
+            }, 2000);
         }).catch(error => {
             alert(error.message);
             console.log(error);
@@ -48,7 +52,9 @@ export class AuthService {
     loginWithSocialMedia(socialMedia: string) {
         this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(result => {
             this.setSessionData();
-            this.router.navigateByUrl('/reservations');
+            setTimeout(() => {
+                this.router.navigateByUrl('/reservations');
+            }, 2000);
         }).catch(error => {
             alert(error.message);
             console.log(error);
